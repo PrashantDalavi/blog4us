@@ -1,1 +1,21 @@
-<p> this is new post of poist controller </p>
+<h1> Add New Post </h1> <br>
+<%= form_for @post do |f| %>
+    <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %> <br>
+    </p>
+
+    <p>
+        <%= f.label :body %><br>
+        <%= f.text_area :body, size: "60x12"%> <br>
+    </p>
+
+    <p>
+        <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, include_blank: "Select one" %><br>
+            
+    </p>
+
+    <p>
+        <%= f.submit "Add Post" %>
+    </p>
+<% end %>
