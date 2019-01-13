@@ -1,1 +1,4 @@
-<p> this is show of post controller </p>
+<h1> <%= @post.title %> </h1> 
+<small> <%= @post.created_at.strftime("%b %d. %Y")%> </small>
+<br>
+<p> <%= @post.body %> </p>
