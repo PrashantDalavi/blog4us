@@ -1,23 +1,14 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Categories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<ul>
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-      </tr>
+      
+        <li><%= link_to category.name,category %></li>
+      
     <% end %>
-  </tbody>
-</table>
+ </ul>
 
 <br>
 
