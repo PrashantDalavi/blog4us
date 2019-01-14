@@ -1,4 +1,24 @@
 <div class = "post">
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<h1>contact</h1> <br>
+
+<%= flash[:notice] %>
+<%= form_with(url:"/pages/thank_you", method: "post", local: true) do |form| %>
+
+  <div class="form-group">
+    <strong><%= form.label :name %></strong>
+   <p> <%= form.text_field :name, class: "form-control", placeholder: "Enter Name" %></p>
+  </div>  
+  <div class="form-group">
+    <strong><%= form.label :email %></strong>
+    <p> <%= form.text_field :email, class: "form-control", placeholder: "Enter Email" %> </p>
+  </div> 
+  <div class="form-group">
+   <strong> <%= form.label :message %></strong>
+   <p> <%= form.text_area :message, size: "50x12", class: "form-control", placeholder: "Enter Message", rows: 5 %> </p>
+      
+    </div>
+       <h5> <%= form.submit "Send", class: "form_label" %> </h5>
+    <% end %>
+    </section>
+
 </div>
