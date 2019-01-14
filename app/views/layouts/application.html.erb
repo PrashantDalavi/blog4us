@@ -19,7 +19,47 @@
 				</div>
 				<!-- end #content -->
 				
-				<%= render 'partials/sidebar' %>
+			<div id="sidebar">
+					<ul>
+						<li>
+							<div id="search" >
+							<%= form_with(url: posts_path, method: 'get', local: true) do |form| %>
+  							
+  							<%= form.text_field :q, id: 'q', value: params[:q], id: "search-text"  %>
+  								<%= form.submit 'Go', id: "search-submit" %>
+							<% end %>
+							
+							</div>
+							<div style="clear: both;">&nbsp;</div>
+						</li>
+						<li>
+							<h2>View my Github</h2>
+							<p>view my Git repository to see the backend for this
+                                                            <br />
+                                                            <a style="color:#D93544;" href="https://github.com/PrashantDalavi/blog4us" target="blank">GITHUB</a>
+                                                        </p>
+						</li>
+						<li>
+							<h2>Categories</h2>
+							<ul>
+								<% all_categories.each do |cat| %>
+                                    <li> <%= link_to cat.name, category_path(id: cat.id) %> </li>
+                                <% end %>
+					
+							</ul>
+						</li>
+						<li>
+							<h2>Blogroll</h2>
+							<ul>
+								<% all_posts.each do |post| %>
+                                    <li> <%= link_to post.title, post_path(id: post.id) %> </li>
+                                <% end %>
+					
+							</ul>
+						</li>
+						
+					</ul>
+				</div>
 				<!-- end #sidebar -->
 				<div style="clear: both;">&nbsp;</div>
 			</div>

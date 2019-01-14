@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     def index 
-        @posts = Post.all   
+        @posts = Post.all
+        search_term = params[:q]
     end
 
     def show
