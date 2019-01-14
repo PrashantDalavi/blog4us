@@ -1,3 +1,4 @@
+<div class = "post">
 <h1> <%= @post.title %> </h1> 
 <small> <%= @post.created_at.strftime("%b %d. %Y")%> </small>
 <br>
@@ -6,3 +7,4 @@
 <p> <%= link_to "Back", posts_path %> <br>
 
 <%= link_to "Edit Post", edit_post_path %> | <%= link_to "Delete Post", @post, data: {confirm:"Are you sure you want to delete?"}, method: :delete %>
+</div>
