@@ -64,7 +64,7 @@ group :production do
   gem 'pg'
 end
 
-gem 'meta_search'
+gem 'devise'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

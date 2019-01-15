@@ -11,7 +11,8 @@
 
   <body>
 
- 
+   
+
     
 
     <div id="wrapper">
@@ -27,7 +28,16 @@
             <li> <%= link_to  "About", about_path %> </li>
             <li> <%= link_to  "Blog", posts_path %> </li>
             <li> <%= link_to  "Contact", contact_path %> </li>
-            <li> <%= link_to  "Resources", resources_path %> </li>
+             <% if user_signed_in? %>
+            <li class="nav-item">
+                <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+                <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+            </li>
+            <% end %>
+              </li>
         </ul>
 			</div>
 		</div>
