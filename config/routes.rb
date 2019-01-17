@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get 'pages/resources'
   get 'home_pages/index'
   root 'home_pages#index'
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   resources :categories
 
   get '/about', :to => 'pages#about'

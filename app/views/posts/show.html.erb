@@ -5,6 +5,9 @@
 <p> <%= @post.body %> </p> 
 <p>Category: <em><%= link_to @post.category.name, category_path(:id =>@post.category.id) %></em></p> 
 <p> <%= link_to "Back", posts_path %> </p><br>
-
+<%= render 'new_comment' %>
+<%= render 'comments' %>
+<% if signed_in? %>
 <%= link_to "Edit Post", edit_post_path %> | <%= link_to "Delete Post", @post, data: {confirm:"Are you sure you want to delete?"}, method: :delete %>
+<% end %>
 </div>
