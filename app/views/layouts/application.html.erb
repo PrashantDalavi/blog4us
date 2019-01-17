@@ -1,17 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-	<%= render 'partials/header' %>
+  <body>    
+	
+
+    <div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="#">My Ruby Blog</a></h1>
+				<p>Learning Ruby on Rails</p>
+			</div>
+			<div id="menu">
+				<ul class="main-nav">
+            <li> <%= link_to  "Home", root_path %> </li>
+            <li> <%= link_to  "About", about_path %> </li>
+            <li> <%= link_to  "Blog", posts_path %> </li>
+            <li> <%= link_to  "Contact", contact_path %> </li>
+             <% if user_signed_in? %>
+            <li class="nav-item">
+                <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+                <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+            </li>
+            <% end %>
+              </li>
+        </ul>
+			</div>
+		</div>
+	</div>
 	<!-- end #header -->
+
+
 	<div id="page">
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
 				<div id="content">
 
         
-        <div class = "flash-message">
-         <% flash.each do |key,value|%>
-         <p> <%= value %> </p>
-         <% end %>
-         </div>
+        <% if notice %>
+       <p id="notice"><%= notice %></p>
+    	<% end %>
         <%= yield %>
 
 				
@@ -67,7 +106,7 @@
 	</div>
 	<!-- end #page -->
 	<div id="footer">
-		<p>&copy; 2019, My Blog - Sample Project</p>
+		<p>&copy; 2019, Blog4Us - Sample Project</p>
 	</div>
 </div>
 <!-- end #footer -->
